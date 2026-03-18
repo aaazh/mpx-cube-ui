@@ -52,7 +52,7 @@ createComponent({
     },
     /**
      * @description 图标类型（自动添加`cubeic-`前缀）
-     * @optional 图标 Icon，更多选择参见[内置 Icon](https://www.mpxjs.cn/mpx-cube-ui/demo-theme-default/index.html#/pages/icon/index)
+     * @optional 图标 Icon，更多选择参见[内置 Icon](https://www.mpxjs.cn/mpx-cube-ui/example/index.html#/pages/icon/index)
      */
     icon: {
       type: String,
@@ -111,7 +111,7 @@ createComponent({
     },
     /**
      * @description 通过 wx:style透传样式, 里面的每项分别修改对应位置的样式
-     * @optional styleConfig = { headIcon: '' }
+     * @optional styleConfig = { headIcon, main, close  }
      */
     styleConfig: {
       type: Object,

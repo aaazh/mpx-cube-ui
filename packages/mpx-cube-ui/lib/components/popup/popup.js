@@ -63,15 +63,12 @@ createComponent({
     },
     computed: {
         popupStyle() {
-            const style = {};
-            if (__mpx_mode__ !== 'ios' && __mpx_mode__ !== 'android' && __mpx_mode__ !== 'harmony') {
-                style.zIndex = this.zIndex;
-            }
+            const style = { zIndex: this.zIndex };
             if (this.pointerEvents) {
                 style.pointerEvents = this.pointerEvents;
             }
             if (!this.isVisible) {
-                if (__mpx_mode__ === 'ios' || __mpx_mode__ === 'android') {
+                if (__mpx_mode__ === 'ios' || __mpx_mode__ === 'android' || __mpx_mode__ === 'harmony') {
                     style.pointerEvents = 'box-none';
                 }
                 else {
@@ -112,7 +109,7 @@ createComponent({
                 style.opacity = this.styleConfig.mask.visibleOpacity;
             }
             if (!this.isVisible) {
-                if (__mpx_mode__ === 'ios' || __mpx_mode__ === 'android') {
+                if (__mpx_mode__ === 'ios' || __mpx_mode__ === 'android' || __mpx_mode__ === 'harmony') {
                     style.pointerEvents = 'box-none';
                 }
                 else {

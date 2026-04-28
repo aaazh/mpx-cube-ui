@@ -91,7 +91,7 @@ createComponent({
             else {
                 oldEle?.refresh();
                 oldEle?.setContentStyle({});
-                newEle.setContentStyle({
+                newEle?.setContentStyle({
                     position: 'fixed',
                     top: this.rootRect.top + this.offset + 'px',
                     left: this.rootRect.left + 'px',
@@ -187,7 +187,7 @@ createComponent({
                 query.selectAll('.cube-sticky-ele').boundingClientRect((rects) => {
                     (rects || []).forEach((rect) => {
                         this.rects.push(rect);
-                        this.positions[index] = (rect?.top || 0) - rootTop;
+                        this.positions[index] = (rect?.top || 0) - rootTop + this.pos;
                         this.heights[index] = rect?.height || 0;
                     });
                 });

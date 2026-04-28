@@ -1,9 +1,5 @@
 <template>
-  <base-container>
-    <view class="cube-sticky-demo-item">
-      <sticky-basic />
-    </view>
-  </base-container>
+  <sticky-basic />
 </template>
 
 <script>

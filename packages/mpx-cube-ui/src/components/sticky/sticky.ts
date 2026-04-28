@@ -204,7 +204,7 @@ createComponent({
         query.selectAll('.cube-sticky-ele').boundingClientRect((rects: any[]) => {
           (rects || []).forEach((rect) => {
             this.rects.push(rect)
-            this.positions[index] = (rect?.top || 0) - rootTop
+            this.positions[index] = (rect?.top || 0) - rootTop + this.pos
             this.heights[index] = rect?.height || 0
           })
         })

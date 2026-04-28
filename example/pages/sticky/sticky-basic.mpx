@@ -1,28 +1,28 @@
 <template>
   <view>
-    <view>{{ pos }}</view>
-    <cube-sticky pos="{{pos}}">
+    <view style="height: 6vh;position:relative" bindtap="refresh">{{ pos }}</view>
+    <cube-sticky pos="{{pos}}" wx:ref="sticky">
       <scroll-view
         scroll-y="{{ true }}"
         bindscroll="onScroll"
-        style="height: 100vh;position:relative"
+        style="height: 94vh;position:relative"
       >
         <view class="sticky-content">
-          <view wx:for="{{[1,2,3,4,5]}}" wx:key="*this" class="content-item">内容项 {{item}}</view>
+          <view wx:for="{{ dataArr}}" wx:key="*this" class="content-item">内容1项 {{item}}</view>
         </view>
 
         <cube-sticky-ele eleKey="2">
           <view class="sticky-header">吸顶标题 2</view>
         </cube-sticky-ele>
         <view class="sticky-content">
-          <view wx:for="{{[1,2,3,4,5]}}" wx:key="*this" class="content-item">内容项 {{item}}</view>
+          <view wx:for="{{[1,2,3,4,5]}}" wx:key="*this" class="content-item">内容2项 {{item}}</view>
         </view>
 
         <cube-sticky-ele eleKey="3">
           <view class="sticky-header">吸顶标题 3</view>
         </cube-sticky-ele>
         <view class="sticky-content">
-          <view wx:for="{{[1,2,3,4,5]}}" wx:key="*this" class="content-item">内容项 {{item}}</view>
+          <view wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}" wx:key="*this" class="content-item">内容项 {{item}}</view>
         </view>
       </scroll-view>
     </cube-sticky>
@@ -38,10 +38,20 @@ createComponent({
   },
   data: {
     pos: 0,
+    dataArr: [1, 2, 3, 4, 5],
   },
   methods: {
+    refresh() {
+      console.log('refresh')
+      this.dataArr.push(6, 7)
+      this.count = 1
+    },
     onScroll(e) {
       this.pos = e.detail.scrollTop
+      if (this.count) {
+        this.count = 0
+        this.$refs.sticky.refresh()
+      }
     },
   },
 })
